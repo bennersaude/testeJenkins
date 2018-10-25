@@ -6,6 +6,7 @@ pipeline {
 				script {
                     def caminho = '${WORKSPACE}'
                     println caminho
+					println caminho
                 }
             }
         }
