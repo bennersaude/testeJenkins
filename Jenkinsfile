@@ -8,9 +8,6 @@ pipeline {
                     println caminho
                 }
             }
-            steps {                
-                echo "TESTE"
-            }
         }
         stage('Stage2') {
             steps {                
