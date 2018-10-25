@@ -24,7 +24,11 @@ pipeline {
 				println "MsBuild: ${env.MSBuild14} "
 				echo "Orquestrador: ${env.Orquestrador} "
 				echo "NUnit3: ${env.NUnit3} "
-
+				
+				echo "PROJECT_NAME: ${PROJECT_NAME} "
+				echo "BUILD_NUMBER: ${BUILD_NUMBER} "
+				echo "BUILD_STATUS: ${BUILD_STATUS} "
+				
             }
         }
     }
