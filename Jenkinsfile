@@ -11,7 +11,7 @@ pipeline {
         }
         stage('Stage2') {
             steps {                
-                echo ${WORKSPACE}
+                echo "${WORKSPACE}"
             }
         }
     }
