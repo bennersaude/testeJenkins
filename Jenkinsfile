@@ -52,7 +52,7 @@ pipeline {
         }
 		stage('Orquestrador') {
 			steps{
-				bat('%orquestrador% -acao VALIDAR_VERSAO_SMS -repositorio Corrente -pull-request 123')
+				bat('%orquestrador% -acao VALIDAR_VERSAO_SMS -repositorio AG_DotNet -pull-request 3139')
 			}
 		}
     }
