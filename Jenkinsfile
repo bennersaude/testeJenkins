@@ -12,9 +12,10 @@ pipeline {
             steps {                
 				script {
                     println " Caminho ${caminho}"
-					println " Commit ${sha} "
+					println " Commit ${env.sha1} "
 					println " Branch atual: ${env.BRANCH_NAME}"
-					println "PullRequest: ${pr}"
+					println "PullRequest: ${env.PULL_REQUEST}"
+					
                 }
             }
         }
@@ -24,9 +25,6 @@ pipeline {
 				println "MsBuild: ${env.MSBuild14} "
 				echo "Orquestrador: ${env.Orquestrador} "
 				echo "NUnit3: ${env.NUnit3} "
-				
-				
-				
             }
         }
     }
