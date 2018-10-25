@@ -20,9 +20,7 @@ pipeline {
         }
         stage('Stage2') {
             steps {                
-                echo "Nuget:  " %Nuget%
-				echo "WorkSpace:  " %WORKSPACE% 
-				echo "Builde14:  " %MSBuild14% 
+                echo "Builde14: ${WORKSPACE} "
 
             }
         }
