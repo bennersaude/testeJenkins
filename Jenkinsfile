@@ -6,6 +6,8 @@ pipeline {
 		sha = "${sha1}"
 		pr = "${PULL_REQUEST}";
 		
+		orquestrador = '"${env.Orquestrador}"'
+		
 	}
     stages {
 	
@@ -15,7 +17,6 @@ pipeline {
                     println " Caminho ${caminho}"
 					println " Commit ${env.sha1} "
 					println " Branch atual: ${env.BRANCH_NAME}"
-
 					println "BRANCH_NAME: ${env.BRANCH_NAME}"
 					println "CHANGE_ID: ${env.CHANGE_ID}"
 					println "CHANGE_URL: ${env.CHANGE_URL}"
@@ -37,9 +38,7 @@ pipeline {
 					println "JENKINS_HOME: ${env.JENKINS_HOME}"
 					println "JENKINS_URL: ${env.JENKINS_URL}"
 					println "BUILD_URL: ${env.BUILD_URL}"
-					println "JOB_URL: ${env.JOB_URL}"					
-					
-					
+					println "JOB_URL: ${env.JOB_URL}"		
                 }
             }
         }
@@ -53,7 +52,7 @@ pipeline {
         }
 		stage('Orquestrador') {
 			steps{
-				bat('env.Orquestrador -acao VALIDAR_VERSAO_SMS -repositorio Corrente -pull-request 123')
+				bat('%orquestrador% -acao VALIDAR_VERSAO_SMS -repositorio Corrente -pull-request 123')
 			}
 		}
     }
