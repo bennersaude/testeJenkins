@@ -1,12 +1,19 @@
 pipeline {
-
+   agent any
+   
     stages {
-        stage('Preparation') {
+        stage('Stage1') {
             steps {                
 				script {
-                    def caminho = '${WORKSPACE}'
+                    def caminho = ${WORKSPACE}
                     println caminho
+					println ${sha1}
                 }
+            }
+        }
+        stage('Stage2') {
+            steps {                
+                echo "TESTE"
             }
         }
     }
