@@ -21,8 +21,8 @@ pipeline {
         stage('Stage2') {
             steps {                
                 echo "Builde14: ${WORKSPACE} "
-				ECHO "Nuget: %MSBuild14% "
-				ECHO "Nuget: %Orquestrador% "
+				println "Nuget: ${env.MSBuild14} "
+				echo "Nuget: ${env.Orquestrador} "
 
             }
         }
