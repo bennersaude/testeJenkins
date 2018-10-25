@@ -6,7 +6,7 @@ pipeline {
 		sha = "${sha1}"
 		pr = "${PULL_REQUEST}";
 		
-		orquestrador = '${env.Orquestrador}'
+		orquestrador = "C:\Executaveis\OrquestradorTeamCity.exe"
 		
 	}
     stages {
