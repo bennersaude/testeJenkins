@@ -15,10 +15,5 @@ namespace ConsoleApp
         }
     }
 }
-///
-// asdçkfjha lskdfjhalks dfhalksjdfhlkasdhfljkh
-//asdfasdfasfdasfdasdf
 
-//asdfasdfasfdasfdasdffas
-//
-//dfasdf
+// Pipilinha SMS 123456
