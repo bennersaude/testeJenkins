@@ -8,6 +8,7 @@ pipeline {
 		
 	}
     stages {
+	
         stage('Stage1') {
             steps {                
 				script {
@@ -50,5 +51,10 @@ println "JOB_URL: ${env.JOB_URL}"
 				echo "NUnit3: ${env.NUnit3} "
             }
         }
+		stage('Orquestrador') {
+			steps{
+				bat('${env.Orquestrador} -acao VALIDAR_VERSAO_SMS -repositorio Corrente -pull-request 123')
+			}
+		}
     }
 }
