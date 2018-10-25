@@ -54,7 +54,7 @@ pipeline {
         }
 		stage('Orquestrador') {
 			steps{
-				bat('%orquestrador% -acao VALIDAR_VERSAO_SMS -repositorio $repositorio -pull-request 3139')
+				bat('%orquestrador% -acao VALIDAR_VERSAO_SMS -repositorio %repositorio% -pull-request 3139')
 			}
 		}
     }
