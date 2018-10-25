@@ -1,12 +1,14 @@
 pipeline {
     agent any
     environment {
+		repositorio = 'AG_DotNet'
 		
         caminho = "${WORKSPACE}"
 		sha = "${sha1}"
 		pr = "${PULL_REQUEST}";
 		
 		orquestrador = '"C:\\Executaveis\\OrquestradorTeamCity.exe"'
+		
 		
 	}
     stages {
@@ -52,7 +54,7 @@ pipeline {
         }
 		stage('Orquestrador') {
 			steps{
-				bat('%orquestrador% -acao VALIDAR_VERSAO_SMS -repositorio AG_DotNet -pull-request 3139')
+				bat('%orquestrador% -acao VALIDAR_VERSAO_SMS -repositorio $repositorio -pull-request 3139')
 			}
 		}
     }
