@@ -20,12 +20,12 @@ pipeline {
         }
         stage('Stage2') {
             steps {                
-                echo "Builde14: ${WORKSPACE} "
-				println "Nuget: ${env.MSBuild14} "
-				echo "Nuget: ${env.Orquestrador} "
+                echo "WorkSpace: ${WORKSPACE} "
+				println "MsBuild: ${env.MSBuild14} "
+				echo "Orquestrador: ${env.Orquestrador} "
+				echo "NUnit3: ${env.NUnit3} "
 
             }
         }
     }
 }
-
