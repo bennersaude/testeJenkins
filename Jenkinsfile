@@ -1,4 +1,10 @@
 pipeline {
+   agent {
+        node {
+            label 'teste'
+            customWorkspace '/ts1'
+        }
+    }
 
     stages {
         stage('Preparation') {
