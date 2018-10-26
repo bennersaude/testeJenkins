@@ -1,16 +1,20 @@
 pipeline {
-    agent any
-    environment {
-		repositorio = 'AG_DotNet'
+    agent {
+	label {
+		label ""
+		customWorkspace "C:/JK/T_jenkins/${BRANCH_NAME}"
+	}
+    }
 		
-        caminho = "${WORKSPACE}"
+    environment {
+		repositorio = 'AG_DotNet'		
+		caminho = "${WORKSPACE}"
 		sha = "${sha1}"
 		pr = "${PULL_REQUEST}";
-		
+
 		orquestrador = '"C:\\Executaveis\\OrquestradorTeamCity.exe"'
-		
-		
 	}
+	
     stages {
 	
         stage('Stage1') {
