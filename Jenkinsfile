@@ -21,6 +21,9 @@ pipeline {
             steps {                
 				script {
                     println " Caminho ${caminho}"
+					
+					
+					println " CHANGE_AUTHOR_EMAIL :${env.CHANGE_AUTHOR_EMAIL} "
 					println " Commit ${env.sha1} "
 					println " Branch atual: ${env.BRANCH_NAME}"
 					println "BRANCH_NAME: ${env.BRANCH_NAME}"
