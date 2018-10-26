@@ -54,10 +54,10 @@ pipeline {
 	stage('variaveis'){
 		steps{
 			script{
-				sh 'env > env.txt' 
-				for (String i : readFile('env.txt').split("\r?\n")) {
+				bat('env > env.txt') 
+				bat '''for (String i : readFile('env.txt').split("\r?\n")) {
 				    println i
-				}
+				}'''
 			}
 		}
 	}
