@@ -55,9 +55,9 @@ pipeline {
 		steps{
 			script{
 				bat('env > env.txt') 
-				bat '''for (String i : readFile('env.txt').split("\r?\n")) {
+				for (String i : readFile('env.txt').split("\r?\n")) {
 				    println i
-				}'''
+				}
 			}
 		}
 	}
