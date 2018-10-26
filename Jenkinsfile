@@ -41,9 +41,7 @@ pipeline {
 					println "JENKINS_URL: ${env.JENKINS_URL}"
 					println "BUILD_URL: ${env.BUILD_URL}"
 					println "JOB_URL: ${env.JOB_URL}"	
-					if (env.CHANGE_ID) {
-						println "pullrequest.number: ${pullRequest.number}"
-                                        }
+					println "pullrequest.number: ${pullRequest.number}"
                 }
             }
         }
