@@ -54,10 +54,7 @@ pipeline {
 	stage('variaveis'){
 		steps{
 			script{
-				bat('env > env.txt') 
-				for (String i : readFile('env.txt').split("\r?\n")) {
-				    println i
-				}
+				println "evns:  ${env}"
 			}
 		}
 	}
