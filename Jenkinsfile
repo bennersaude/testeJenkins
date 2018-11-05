@@ -87,7 +87,8 @@ def getCommandOutput(cmd) {
 	
 	pritnln "stdout: ${stdout}"
 	
-	result = stdout.readLines().drop(1).join(" ")       
+	result = stdout.readLines().drop(1).join(" ")
+	
 	println "result: ${result}"
 	
 	return result
