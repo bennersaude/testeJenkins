@@ -80,5 +80,5 @@ pipeline {
 
 def getCommandOutput(cmd) {
 	stdout = bat(returnStdout:true , script: cmd).trim()
-	echo "stdout: ${stdout}"
+	//echo "stdout: ${stdout}"
 }
