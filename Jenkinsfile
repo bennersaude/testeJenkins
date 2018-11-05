@@ -14,7 +14,8 @@ pipeline {
 		sha = "${sha1}"
 		pr = "${PULL_REQUEST}"
 
-		orquestrador = '"C:\\Executaveis\\OrquestradorTeamCity.exe"'	        
+		orquestrador = '"C:\\Executaveis\\OrquestradorTeamCity.exe"'	  
+	        comando = "%orquestrador% -acao PULLREQUEST_NUMERO -repositorio %repositorio% -branch ${env.BRANCH_NAME}"
 	}
 	
     stages {
@@ -59,7 +60,7 @@ pipeline {
 			
 			//bat("%orquestrador% -acao PULLREQUEST_NUMERO -repositorio %repositorio% -branch ${env.BRANCH_NAME}")
 			
-			dadosPull = bat(returnStdout: true, script: "C:\Executaveis\OrquestradorTeamCity.exe -acao PULLREQUEST_NUMERO -repositorio testeJenkins -branch SMS/123444")
+			dadosPull = bat(returnStdout: true, script: "${comando}")
 			
 			echo "numero ${dadosPull}"
 		}
