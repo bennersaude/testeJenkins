@@ -59,7 +59,7 @@ pipeline {
 			
 			//bat("%orquestrador% -acao PULLREQUEST_NUMERO -repositorio %repositorio% -branch ${env.BRANCH_NAME}")
 			
-			dadosPull = bat(returnStdout: true, script: '''%orquestrador% -acao PULLREQUEST_NUMERO -repositorio %repositorio% -branch ${env.BRANCH_NAME}''')
+			dadosPull = bat(returnStdout: true, script: "C:\Executaveis\OrquestradorTeamCity.exe -acao PULLREQUEST_NUMERO -repositorio testeJenkins -branch SMS/123444")
 			
 			echo "numero ${dadosPull}"
 		}
