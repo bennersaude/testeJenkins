@@ -55,8 +55,8 @@ pipeline {
 			
 			echo "Numero do pullrequest"
 			
-			def dadosPull = getCommandOutput("%orquestrador% -acao PULLREQUEST_NUMERO -repositorio %repositorio% -branch ${env.BRANCH_NAME}")
-			def pull = readJSON text: dadosPull
+			dadosPull = getCommandOutput("%orquestrador% -acao PULLREQUEST_NUMERO -repositorio %repositorio% -branch ${env.BRANCH_NAME}")
+			pull = readJSON text: dadosPull
 			
 			echo pull["Numero"]
 		}
