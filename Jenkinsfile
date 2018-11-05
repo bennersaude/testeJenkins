@@ -60,7 +60,7 @@ pipeline {
 			
 			//bat("%orquestrador% -acao PULLREQUEST_NUMERO -repositorio %repositorio% -branch ${env.BRANCH_NAME}")
 			
-			dadosPull = sh(returnStdout: true, script: %comando%)
+			dadosPull = getCommandOutput(${comando})
 			
 			echo "numero ${dadosPull}"
 		}
@@ -79,4 +79,8 @@ pipeline {
 		}
 	}
     }
+}
+
+def getCommandOutput(cmd) {
+	stdout = bat(returnStdout:true , script: cmd).trim()
 }
