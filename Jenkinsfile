@@ -55,7 +55,7 @@ pipeline {
 			
 			echo "Numero do pullrequest"
 			
-			retorno = getCommandOutput("%orquestrador% -acao PULLREQUEST_NUMERO -repositorio %repositorio% -branch ${env.BRANCH_NAME}")
+			getCommandOutput("%orquestrador% -acao PULLREQUEST_NUMERO -repositorio %repositorio% -branch ${env.BRANCH_NAME}")
 			//pull = readJSON text: "${retorno}"
 			
 			echo "Numero"
@@ -78,6 +78,7 @@ pipeline {
 }
 
 def getCommandOutput(cmd) {
-	stdout = bat(returnStdout:true , script: cmd).trim()		
-	return "${stdout}"
+	stdout = bat(returnStdout:true , script: cmd).trim()
+	pulls = readJSON text: stdout;
+	return "${pulls}"
 }
