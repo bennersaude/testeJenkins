@@ -81,7 +81,7 @@ def getCommandOutput(cmd) {
 	stdout = bat(returnStdout:true , script: cmd).trim()
 	
 	pull = readJSON text: stdout
-	println "Numero ${pull[0]}"
+	println "Numero ${pull}"
 	
 	return "${stdout}"
 }
