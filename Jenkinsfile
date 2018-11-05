@@ -55,7 +55,7 @@ pipeline {
 			
 			echo "Numero do pullrequest"
 			
-			println getCommandOutput("%orquestrador% -acao PULLREQUEST_NUMERO -repositorio %repositorio% -branch ${env.BRANCH_NAME}")["Numero"]
+			println getCommandOutput("%orquestrador% -acao PULLREQUEST_NUMERO -repositorio %repositorio% -branch ${env.BRANCH_NAME}")
 			
 			
 			//echo pull["Numero"]
