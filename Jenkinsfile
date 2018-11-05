@@ -57,9 +57,9 @@ pipeline {
 			
 			echo "Numero do pullrequest"
 			
-			bat("%orquestrador% -acao PULLREQUEST_NUMERO -repositorio %repositorio% -branch ${env.BRANCH_NAME}")
+			//bat("%orquestrador% -acao PULLREQUEST_NUMERO -repositorio %repositorio% -branch ${env.BRANCH_NAME}")
 			
-			//echo getCommandOutput("%orquestrador% -acao PULLREQUEST_NUMERO -repositorio %repositorio% -branch ${env.BRANCH_NAME}")
+			echo getCommandOutput("%orquestrador% -acao PULLREQUEST_NUMERO -repositorio %repositorio% -branch ${env.BRANCH_NAME}")
 			
 			echo "numero ${dadosPull}"
 		}
@@ -83,13 +83,13 @@ pipeline {
 def getCommandOutput(cmd) {
 	def stdout = bat(returnStdout:true , script: cmd).trim()
 	
-	dadosPull = stdout
+	return stdout
 	
-	pritnln "stdout: ${stdout}"
+	//pritnln "stdout: ${stdout}"
 	
-	def result = stdout.readLines().drop(1).join(" ")
+	//def result = stdout.readLines().drop(1).join(" ")
 	
-	println "result: ${result}"
+	//println "result: ${result}"
 	
-	return result
+	//return result
 }
