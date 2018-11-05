@@ -79,6 +79,6 @@ pipeline {
 }
 
 def getCommandOutput(cmd) {
-	stdout = bat(returnStdout:true , script: cmd).trim()
+	ref stdout = bat(returnStdout:true , script: cmd).trim()
 	return ${stdout}"
 }
