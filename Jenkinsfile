@@ -59,7 +59,7 @@ pipeline {
 			
 			//bat("%orquestrador% -acao PULLREQUEST_NUMERO -repositorio %repositorio% -branch ${env.BRANCH_NAME}")
 			
-			bat("%orquestrador% -acao PULLREQUEST_NUMERO -repositorio %repositorio% -branch ${env.BRANCH_NAME} > PULL_REQUEST")
+			bat("%orquestrador% -acao PULLREQUEST_NUMERO -repositorio %repositorio% -branch ${env.BRANCH_NAME}")
 			
 			dadosPull = readFile('PULL_REQUEST')
 			
