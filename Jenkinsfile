@@ -81,13 +81,13 @@ pipeline {
 }
 
 def getCommandOutput(cmd) {
-	stdout = bat(returnStdout:true , script: cmd).trim()
+	def stdout = bat(returnStdout:true , script: cmd).trim()
 	
 	dadosPull = stdout
 	
 	pritnln "stdout: ${stdout}"
 	
-	result = stdout.readLines().drop(1).join(" ")
+	def result = stdout.readLines().drop(1).join(" ")
 	
 	println "result: ${result}"
 	
