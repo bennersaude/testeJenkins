@@ -59,7 +59,7 @@ pipeline {
 			
 			//bat("%orquestrador% -acao PULLREQUEST_NUMERO -repositorio %repositorio% -branch ${env.BRANCH_NAME}")
 			
-			dadosPull = bat(returnStdout: true, script: "%orquestrador% -acao PULLREQUEST_NUMERO -repositorio %repositorio% -branch ${env.BRANCH_NAME}")
+			dadosPull = bat(returnStdout: true, script: '''%orquestrador% -acao PULLREQUEST_NUMERO -repositorio %repositorio% -branch ${env.BRANCH_NAME}''')
 			
 			echo "numero ${dadosPull}"
 		}
