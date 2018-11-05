@@ -55,10 +55,11 @@ pipeline {
 			
 			echo "Numero do pullrequest"
 			
-			def retorno = getCommandOutput("%orquestrador% -acao PULLREQUEST_NUMERO -repositorio %repositorio% -branch ${env.BRANCH_NAME}")
-			pull = readJSON text: "${retorno}"
+			//def retorno = 
+				getCommandOutput("%orquestrador% -acao PULLREQUEST_NUMERO -repositorio %repositorio% -branch ${env.BRANCH_NAME}")
+			//pull = readJSON text: "${retorno}"
 			
-			echo pull["Numero"]
+			echo "Numero"
 		}
 	}
         stage('Stage2') {
