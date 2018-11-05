@@ -59,7 +59,9 @@ pipeline {
 			
 			//bat("%orquestrador% -acao PULLREQUEST_NUMERO -repositorio %repositorio% -branch ${env.BRANCH_NAME}")
 			
-			echo getCommandOutput("%orquestrador% -acao PULLREQUEST_NUMERO -repositorio %repositorio% -branch ${env.BRANCH_NAME}")
+			sh("%orquestrador% -acao PULLREQUEST_NUMERO -repositorio %repositorio% -branch ${env.BRANCH_NAME} > PULL_REQUEST")
+			
+			dadosPull = readFile('PULL_REQUEST')
 			
 			echo "numero ${dadosPull}"
 		}
@@ -78,18 +80,4 @@ pipeline {
 		}
 	}
     }
-}
-
-def getCommandOutput(cmd) {
-	return sh(returnStdout:true , script: cmd).trim()
-	
-	//return stdout
-	
-	//pritnln "stdout: ${stdout}"
-	
-	//def result = stdout.readLines().drop(1).join(" ")
-	
-	//println "result: ${result}"
-	
-	//return result
 }
