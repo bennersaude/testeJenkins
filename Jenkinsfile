@@ -14,8 +14,7 @@ pipeline {
 		sha = "${sha1}"
 		pr = "${PULL_REQUEST}"
 
-		orquestrador = '"C:\\Executaveis\\OrquestradorTeamCity.exe"'	  
-	        comando = "%orquestrador% -acao PULLREQUEST_NUMERO -repositorio %repositorio% -branch ${env.BRANCH_NAME}"
+		orquestrador = '"C:\\Executaveis\\OrquestradorTeamCity.exe"'	  	       
 	}
 	
     stages {
@@ -58,9 +57,7 @@ pipeline {
 			
 			echo "Numero do pullrequest"
 			
-			//bat("%orquestrador% -acao PULLREQUEST_NUMERO -repositorio %repositorio% -branch ${env.BRANCH_NAME}")
-			
-			dadosPull = getCommandOutput(${comando})
+			getCommandOutput("%orquestrador% -acao PULLREQUEST_NUMERO -repositorio %repositorio% -branch ${env.BRANCH_NAME}")
 			
 			echo "numero ${dadosPull}"
 		}
