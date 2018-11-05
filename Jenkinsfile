@@ -1,5 +1,3 @@
-def dadosPull
-
 pipeline {
     agent {
 	label {
@@ -57,9 +55,10 @@ pipeline {
 			
 			echo "Numero do pullrequest"
 			
-			dadosPull = getCommandOutput("%orquestrador% -acao PULLREQUEST_NUMERO -repositorio %repositorio% -branch ${env.BRANCH_NAME}")
+			def dadosPull = getCommandOutput("%orquestrador% -acao PULLREQUEST_NUMERO -repositorio %repositorio% -branch ${env.BRANCH_NAME}")
+			def pull = readJSON text: dadosPull
 			
-			echo "numero ${dadosPull}"
+			echo pull["Numero"]
 		}
 	}
         stage('Stage2') {
