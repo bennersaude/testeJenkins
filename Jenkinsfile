@@ -1,4 +1,6 @@
-def dadosPull
+def PULL_NUMERO
+def PULL_URL
+def PULL_AUTOR
 
 pipeline {
     agent {
@@ -56,7 +58,7 @@ pipeline {
 		steps{
 			script{
 				pulls = getCommandOutput("%orquestrador% -acao PULLREQUEST_NUMERO -repositorio %repositorio% -branch ${env.BRANCH_NAME}").trim()
-				echo "${dadosPull[0]}"
+				echo "${PULL_NUMERO}"
 
 				//getCommandOutput("%orquestrador% -acao PULLREQUEST_NUMERO -repositorio %repositorio% -branch ${env.BRANCH_NAME}")
 				//pull = readJSON text: "${retorno}"
@@ -86,8 +88,7 @@ def getCommandOutput(cmd) {
 	result = stdout.readLines().drop(2).join(" ")  
 	dadosPull = readJSON text: result;
 	
-	${env.CHANGE_ID}" = ${dadosPull[0]["Numero"]}; 
-	${env.CHANGE_URL}" = ${dadosPull[0]["Url"]};
-	${env.CHANGE_AUTHOR}" ${= dadosPull[0]["Login"]};
-	
+	PULL_NUMERO = dadosPull[0]["Numero"]
+	PULL_URL = dadosPull[0]["Url"]
+	PULL_AUTOR = dadosPull[0]["Login"]
 }
