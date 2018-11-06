@@ -52,15 +52,16 @@ pipeline {
         }
 	stage('Github') {
 		steps{
-			
-			def stdout = bat(returnStdout:true , script: "%orquestrador% -acao PULLREQUEST_NUMERO -repositorio %repositorio% -branch ${env.BRANCH_NAME}").trim()
-			
-			//echo "Numero do pullrequest"
-			
-			//getCommandOutput("%orquestrador% -acao PULLREQUEST_NUMERO -repositorio %repositorio% -branch ${env.BRANCH_NAME}")
-			//pull = readJSON text: "${retorno}"
-			
-			//echo "Numero"
+			script{
+				pulls = bat(returnStdout:true , script: "%orquestrador% -acao PULLREQUEST_NUMERO -repositorio %repositorio% -branch ${env.BRANCH_NAME}").trim()
+
+				echo "Numero do pullrequest ${pulls}"
+
+				//getCommandOutput("%orquestrador% -acao PULLREQUEST_NUMERO -repositorio %repositorio% -branch ${env.BRANCH_NAME}")
+				//pull = readJSON text: "${retorno}"
+
+				//echo "Numero"
+			}
 		}
 	}
         stage('Stage2') {
