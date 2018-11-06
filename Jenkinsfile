@@ -53,7 +53,7 @@ pipeline {
 	stage('Github') {
 		steps{
 			script{
-				pulls = bat(returnStdout:true , script: "%orquestrador% -acao PULLREQUEST_NUMERO -repositorio %repositorio% -branch ${env.BRANCH_NAME}").trim()
+				pulls = getCommandOutput("%orquestrador% -acao PULLREQUEST_NUMERO -repositorio %repositorio% -branch ${env.BRANCH_NAME}").trim()
 
 				echo "Numero do pullrequest ${pulls}"
 
