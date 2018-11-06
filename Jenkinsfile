@@ -58,7 +58,7 @@ pipeline {
 		steps{
 			script{
 				pulls = getCommandOutput("%orquestrador% -acao PULLREQUEST_NUMERO -repositorio %repositorio% -branch ${env.BRANCH_NAME}")
-				echo "${PULL_NUMERO}"
+				echo "${pulls}"
 
 				//getCommandOutput("%orquestrador% -acao PULLREQUEST_NUMERO -repositorio %repositorio% -branch ${env.BRANCH_NAME}")
 				//pull = readJSON text: "${retorno}"
@@ -88,7 +88,7 @@ def getCommandOutput(cmd) {
 	result = stdout.readLines().drop(2).join(" ")  
 	dadosPull = readJSON text: result;
 	
-	PULL_NUMERO = dadosPull[0]["Numero"]
+	return = dadosPull[0]["Numero"]
 	PULL_URL = dadosPull[0]["Url"]
 	PULL_AUTOR = dadosPull[0]["Login"]
 }
