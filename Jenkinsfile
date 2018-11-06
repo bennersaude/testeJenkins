@@ -67,8 +67,7 @@ pipeline {
 				echo "${dadosPull.size()}"
 				
 				if (dadosPull.size() > 1){
-					echo "Branch com mais de 1 pull request"
-					currentBuild.result = 'FAILURE'
+					error(""Branch com mais de 1 pull request")
 				}
 
 				PULL_NUMERO = dadosPull[0]["Numero"]
