@@ -82,6 +82,6 @@ pipeline {
 
 def getCommandOutput(cmd) {
 	stdout = bat(returnStdout:true , script: cmd).trim()
-	pulls = readJSON text: stdout;
-	return "${pulls}"
+	//pulls = readJSON text: stdout;
+	return "${stdout}"
 }
