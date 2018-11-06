@@ -54,7 +54,7 @@ pipeline {
 		steps{
 			script{
 				pulls = getCommandOutput("%orquestrador% -acao PULLREQUEST_NUMERO -repositorio %repositorio% -branch ${env.BRANCH_NAME}").trim()
-				echo "${pulls[3]}"
+				echo "${pulls}"
 
 				//getCommandOutput("%orquestrador% -acao PULLREQUEST_NUMERO -repositorio %repositorio% -branch ${env.BRANCH_NAME}")
 				//pull = readJSON text: "${retorno}"
@@ -83,5 +83,5 @@ def getCommandOutput(cmd) {
 	stdout = bat(returnStdout:true , script: cmd).trim()
 	result = stdout.readLines().drop(2).join(" ")  
 	pulls = readJSON text: result;
-	return "${pulls}"
+	return "${pulls[0]}"
 }
