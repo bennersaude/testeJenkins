@@ -55,11 +55,19 @@ pipeline {
             }
         }
 	stage('NumeroPull') {
+		options {
+			timeout(time: 1, unit: 'HOURS') 
+		}
 		steps{
 			script{
 				stdout = bat(returnStdout:true , script: "%orquestrador% -acao PULLREQUEST_NUMERO -repositorio %repositorio% -branch ${env.BRANCH_NAME}").trim()
 				result = stdout.readLines().drop(2).join(" ")  
 				dadosPull = readJSON text: result;
+				
+				if (dadosPull.length > 1){
+					echo "Branch com mais de 1 pull request"
+					currentBuild.result = 'FAILURE'
+				}
 
 				PULL_NUMERO = dadosPull[0]["Numero"]
 				PULL_URL = dadosPull[0]["Url"]
