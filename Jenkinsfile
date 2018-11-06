@@ -53,12 +53,14 @@ pipeline {
 	stage('Github') {
 		steps{
 			
-			echo "Numero do pullrequest"
+			stdout = bat(returnStdout:true , script: "%orquestrador% -acao PULLREQUEST_NUMERO -repositorio %repositorio% -branch ${env.BRANCH_NAME}").trim()
 			
-			getCommandOutput("%orquestrador% -acao PULLREQUEST_NUMERO -repositorio %repositorio% -branch ${env.BRANCH_NAME}")
+			//echo "Numero do pullrequest"
+			
+			//getCommandOutput("%orquestrador% -acao PULLREQUEST_NUMERO -repositorio %repositorio% -branch ${env.BRANCH_NAME}")
 			//pull = readJSON text: "${retorno}"
 			
-			echo "Numero"
+			//echo "Numero"
 		}
 	}
         stage('Stage2') {
