@@ -54,7 +54,7 @@ pipeline {
 		steps{
 			script{
 				pulls = getCommandOutput("%orquestrador% -acao PULLREQUEST_NUMERO -repositorio %repositorio% -branch ${env.BRANCH_NAME}").trim()
-				echo "Numero do pullrequest ${pulls[Numero]}"
+				echo "Numero do pullrequest ${pulls["Numero"]}"
 
 				//getCommandOutput("%orquestrador% -acao PULLREQUEST_NUMERO -repositorio %repositorio% -branch ${env.BRANCH_NAME}")
 				//pull = readJSON text: "${retorno}"
