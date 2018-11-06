@@ -51,7 +51,7 @@ pipeline {
             }
         }
 	stage('Github') {
-		steps{
+		//steps{
 			
 			stdout = bat(returnStdout:true , script: "%orquestrador% -acao PULLREQUEST_NUMERO -repositorio %repositorio% -branch ${env.BRANCH_NAME}").trim()
 			
@@ -61,7 +61,7 @@ pipeline {
 			//pull = readJSON text: "${retorno}"
 			
 			//echo "Numero"
-		}
+		//}
 	}
         stage('Stage2') {
             steps {                
