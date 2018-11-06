@@ -85,4 +85,9 @@ def getCommandOutput(cmd) {
 	stdout = bat(returnStdout:true , script: cmd).trim()
 	result = stdout.readLines().drop(2).join(" ")  
 	dadosPull = readJSON text: result;
+	
+	${env.CHANGE_ID}" = ${dadosPull[0]["Numero"]} 
+	${env.CHANGE_URL}" = ${dadosPull[0]["Url"]}
+	${env.CHANGE_AUTHOR}" ${= dadosPull[0]["Login"]}
+	
 }
