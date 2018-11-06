@@ -1,3 +1,5 @@
+def dadosPull
+
 pipeline {
     agent {
 	label {
@@ -54,7 +56,7 @@ pipeline {
 		steps{
 			script{
 				pulls = getCommandOutput("%orquestrador% -acao PULLREQUEST_NUMERO -repositorio %repositorio% -branch ${env.BRANCH_NAME}").trim()
-				echo "${pulls}"
+				echo "${dadosPull[0]}"
 
 				//getCommandOutput("%orquestrador% -acao PULLREQUEST_NUMERO -repositorio %repositorio% -branch ${env.BRANCH_NAME}")
 				//pull = readJSON text: "${retorno}"
@@ -82,6 +84,5 @@ pipeline {
 def getCommandOutput(cmd) {
 	stdout = bat(returnStdout:true , script: cmd).trim()
 	result = stdout.readLines().drop(2).join(" ")  
-	pulls = readJSON text: result;
-	return "${pulls[0]}"
+	dadosPull = readJSON text: result;
 }
