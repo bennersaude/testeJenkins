@@ -64,6 +64,8 @@ pipeline {
 				result = stdout.readLines().drop(2).join(" ")  
 				dadosPull = readJSON text: result;
 				
+				echo "${dadosPull.size()}"
+				
 				if (dadosPull.size() > 1){
 					echo "Branch com mais de 1 pull request"
 					currentBuild.result = 'FAILURE'
