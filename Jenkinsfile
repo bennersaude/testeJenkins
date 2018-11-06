@@ -88,7 +88,7 @@ def getCommandOutput(cmd) {
 	result = stdout.readLines().drop(2).join(" ")  
 	dadosPull = readJSON text: result;
 	
-	return = dadosPull[0]["Numero"]
+	return dadosPull[0]["Numero"]
 	PULL_URL = dadosPull[0]["Url"]
 	PULL_AUTOR = dadosPull[0]["Login"]
 }
