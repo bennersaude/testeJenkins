@@ -54,12 +54,9 @@ pipeline {
                 }
             }
         }
-	stage('Github') {
+	stage('NumeroPull') {
 		steps{
 			script{
-				//pulls = getCommandOutput("%orquestrador% -acao PULLREQUEST_NUMERO -repositorio %repositorio% -branch ${env.BRANCH_NAME}")
-				//echo "${pulls}"
-				
 				stdout = bat(returnStdout:true , script: "%orquestrador% -acao PULLREQUEST_NUMERO -repositorio %repositorio% -branch ${env.BRANCH_NAME}").trim()
 				result = stdout.readLines().drop(2).join(" ")  
 				dadosPull = readJSON text: result;
@@ -67,18 +64,11 @@ pipeline {
 				PULL_NUMERO = dadosPull[0]["Numero"]
 				PULL_URL = dadosPull[0]["Url"]
 				PULL_AUTOR = dadosPull[0]["Login"]
-
-				//getCommandOutput("%orquestrador% -acao PULLREQUEST_NUMERO -repositorio %repositorio% -branch ${env.BRANCH_NAME}")
-				//pull = readJSON text: "${retorno}"
-
-				//echo "Numero"
 			}
 		}
 	}
         stage('Stage2') {
-            steps { 
-		    echo "${PULL_NUMERO}"   
-		    
+            steps { 		    
                 echo "WorkSpace: ${WORKSPACE} "
 				println "MsBuild: ${env.MSBuild14} "
 				echo "Orquestrador: ${env.Orquestrador} "
@@ -91,14 +81,4 @@ pipeline {
 		}
 	}
     }
-}
-
-def getCommandOutput(cmd) {
-	stdout = bat(returnStdout:true , script: cmd).trim()
-	result = stdout.readLines().drop(2).join(" ")  
-	dadosPull = readJSON text: result;
-	
-	return dadosPull[0]["Numero"]
-	PULL_URL = dadosPull[0]["Url"]
-	PULL_AUTOR = dadosPull[0]["Login"]
 }
